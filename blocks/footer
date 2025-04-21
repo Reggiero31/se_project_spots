@@ -1,0 +1,16 @@
+.footer {
+  width: 104px;
+  height: 16px;
+  top: 1340px;
+  left: 668px;
+}
+
+.footer__content {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+}

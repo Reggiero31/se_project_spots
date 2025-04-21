@@ -3,6 +3,7 @@
   height: 16px;
   top: 1340px;
   left: 668px;
+  justify-content: center;
 }
 
 .footer__content {

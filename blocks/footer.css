@@ -3,7 +3,7 @@
   height: 16px;
   top: 1340px;
   left: 668px;
-  justify-content: center;
+  justify-content: center; 
 }
 
 .footer__content {
@@ -14,4 +14,5 @@
   justify-content: center;
   display: flex;
   margin: auto;
+  color: #212121;
 }

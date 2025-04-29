@@ -1,7 +1,9 @@
 .cards {
   padding-top: 20px;
   border-bottom: 1px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
+  border-style: none;
+  border-color: rgba(252, 245, 229, 1);
 }
 
 .cards__list {

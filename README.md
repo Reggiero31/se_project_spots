@@ -10,6 +10,6 @@ Therefore I have to used figma webpage brief, where I get my layouts on working 
 Pictures, GIFs, or screenshots that detail the project features (highly recommended)
 ![alt text](image-1.png)
 
-The link to your deployed project on GitHub Pages: https://github.com/Reggiero31/se_project_spots.git
+The link to your deployed project on GitHub Pages: https://reggiero31.github.io/se_project_spots/
 
 ![alt text](image-1.png)

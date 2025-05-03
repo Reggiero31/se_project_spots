@@ -1,9 +1,7 @@
 .footer {
-  width: 104px;
-  height: 16px;
-  top: 1340px;
-  left: 668px;
-  justify-content: center;
+  display: flex;
+  opacity: 70%;
+  padding: 60px 0;
 }
 
 .footer__content {

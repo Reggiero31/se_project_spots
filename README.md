@@ -13,3 +13,11 @@ Pictures, GIFs, or screenshots that detail the project features (highly recommen
 The link to your deployed project on GitHub Pages: https://reggiero31.github.io/se_project_spots/
 
 ![alt text](image-1.png)
+
+![alt text](image.png)
+
+#project spots 3 video#
+
+https://www.loom.com/share/73b04ce2fa7e40b98a85a386149b77c8
+
+https://www.loom.com/share/f82b7aeee92345acbaba6e046983024b

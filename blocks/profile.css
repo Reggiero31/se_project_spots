@@ -76,7 +76,6 @@
   cursor: pointer;
   gap: 8px;
   display: flex;
-  border: 8px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -105,16 +104,12 @@
   .profile__description {
     margin-bottom: 32px;
     max-width: 288px;
-    align-items: center;
-    justify-content: center;
   }
 
   .profile__column {
     text-align: center;
     margin-right: 0;
     align-items: center;
-    flex-direction: column;
-    display: flex;
   }
 
   .profile__add-btn {

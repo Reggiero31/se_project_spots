@@ -1,10 +1,7 @@
 .cards {
   padding-top: 20px;
-  border-bottom: 1px;
+  border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
   padding-bottom: 20px;
-  border-style: solid;
-  border-color: #212121;
-  border-width: 1px;
 }
 
 .cards__list {

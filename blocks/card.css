@@ -4,7 +4,7 @@
 
 .card__title {
   font-weight: 500;
-  font-size: 32px;
+  font-size: 20px;
   width: 100%;
   color: #212121;
   margin: 0;
@@ -12,7 +12,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 353px;
-  line-height: 100%;
+  line-height: 120%;
 }
 
 .card__image {
@@ -22,8 +22,9 @@
   display: block;
   border-radius: 8px;
 }
-.card__image:hover {
-  margin-bottom: 32px;
+
+.card__content {
+  margin: 12px;
 }
 
 .card__content {

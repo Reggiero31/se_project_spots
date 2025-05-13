@@ -24,14 +24,11 @@
 }
 
 .card__content {
-  margin: 12px;
-}
-
-.card__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 20px;
+  margin: 12px 0 0;
 }
 
 .card__like-btn {

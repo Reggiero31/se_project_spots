@@ -48,16 +48,16 @@
 .modal__input {
   display: block;
   margin: 8px 0 0;
-  width: 630px;
+  width: 310px;
   height: 52px;
   border-radius: 8px;
   border: 1px;
-  top: 16px;
+  top: 760px;
   right: 12px;
   bottom: 16px;
-  left: 12px;
-  gap: 10px color #212121;
-  opacity: 40%;
+  left: 80px;
+  border-radius: 5px;
+  gap: 10px color #9747ff;
 }
 
 .modal__imput::placeholder {
@@ -75,5 +75,23 @@
   gap: 8px color#212121;
 }
 
+.modal__submit-btn:hover {
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  padding-top: 18px;
+  padding-right: 32px;
+  padding-bottom: 18px;
+  padding-left: 32px;
+  gap: 8px;
+  color: #212121;
+}
+
 @media screen and (max-width: 730px) {
+  .modal__input {
+    width: 730px;
+    height: 400px;
+    top: 204px;
+    left: 355px;
+  }
 }

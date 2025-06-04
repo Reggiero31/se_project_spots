@@ -1,6 +1,6 @@
 .modal {
   visibility: hidden;
-  background-color: #0000;
+  background-color: #21212166;
   position: fixed;
   top: 0;
   right: 0;
@@ -89,8 +89,6 @@
 
 @media screen and (max-width: 730px) {
   .modal__input {
-    width: 730px;
-    height: 400px;
     top: 204px;
     left: 355px;
   }

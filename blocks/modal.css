@@ -2,10 +2,10 @@
   visibility: hidden;
   background-color: #21212166;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 730px;
+  top: 204px;
+  left: 355px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;

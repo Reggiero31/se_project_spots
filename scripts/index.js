@@ -2,7 +2,7 @@ const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = document.querySelector(".modal__close-btn");
 const editprofileForm = document.querySelector(".modal__form");
-const editprofilenameInput = document.querySelector("#profile-name-input");
+const editProfileNameInput = document.querySelector("#profile-name-input");
 
 const editprofileDescriptionInput = document.querySelector(
   "#profile-description-input"

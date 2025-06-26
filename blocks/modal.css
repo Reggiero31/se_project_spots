@@ -35,7 +35,7 @@
 
 .modal__close-btn:hover {
   cursor: pointer;
-  opacity: 40%;
+  opacity: 100%;
 }
 
 .modal__header {
@@ -107,7 +107,6 @@
   letter-spacing: 0%;
   color: #fcf5e5;
   border: none;
-  max-width: 276px;
 }
 
 .modal__submit-btn:hover {

@@ -28,11 +28,11 @@ editProfileCloseBtn.addEventListener("click", function () {
 });
 
 newPostBtn.addEventListener("click", function () {
-  newpostmodal.classList.add("modal_is-opened");
+  newPostModal.classList.add("modal_is-opened");
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-  newpostmodal.classList.remove("modal_is-opened");
+  newPostModal.classList.remove("modal_is-opened");
 });
 
 function handleeditProfileSubmit(evt) {

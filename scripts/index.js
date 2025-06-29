@@ -1,10 +1,10 @@
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = document.querySelector(".modal__close-btn");
-const editprofileForm = document.querySelector(".modal__form");
+const editProfileForm = document.querySelector(".modal__form");
 const editProfileNameInput = document.querySelector("#profile-name-input");
 
-const editprofileDescriptionInput = document.querySelector(
+const editProfileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
@@ -14,12 +14,12 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostCaption = newPostForm.querySelector("#card-description-input");
 const newPostLink = newPostForm.querySelector("#card-image-input");
-const ProfileNameEl = document.querySelector(".profile__name");
-const ProfileDescriptionEl = document.querySelector(".profile__description");
+const profileNameEl = document.querySelector(".profile__name");
+const profileDescriptionEl = document.querySelector(".profile__description");
 
 editProfileBtn.addEventListener("click", function () {
-  editProfileNameInput.value = ProfileNameEl.textContent;
-  editprofileDescriptionInput.value = ProfileDescriptionEl.textContent;
+  editProfileNameInput.value = profileNameEl.textContent;
+  editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   editProfileModal.classList.add("modal_is-opened");
 });
 
@@ -37,11 +37,11 @@ newPostCloseBtn.addEventListener("click", function () {
 
 function handleeditProfileSubmit(evt) {
   evt.preventDefault();
-  ProfileNameEl.textContent = editProfileNameInput.value;
-  ProfileDescriptionEl.textContent = editprofileDescriptionInput.value;
+  profileNameEl.textContent = editProfileNameInput.value;
+  profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   editProfileModal.classList.remove("modal_is-opened");
 }
-editprofileForm.addEventListener("submit", handleeditProfileSubmit);
+editProfileForm.addEventListener("submit", handleeditProfileSubmit);
 newPostForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
   console.log(newPostCaption.value);

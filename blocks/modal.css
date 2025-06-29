@@ -107,6 +107,7 @@
   letter-spacing: 0%;
   color: #fcf5e5;
   border: none;
+  max-width: 156px;
 }
 
 .modal__submit-btn:hover {
@@ -127,5 +128,8 @@
   }
   .modal__container {
     padding: 12px;
+  }
+  .modal__submit-btn {
+    max-width: none;
   }
 }

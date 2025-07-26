@@ -26,16 +26,22 @@
 }
 
 .modal__close-btn {
-  width: 40px;
-  height: 40px;
-  opacity: 40%;
   background: transparent;
-  border: none;
+  border-style: none;
+  position: absolute;
 }
 
 .modal__close-btn:hover {
   cursor: pointer;
   opacity: 100%;
+}
+
+.modal__close-btn_type_preview {
+  background-image: url(../image/close_x.svg.svg);
+  width: 40px;
+  height: 40px;
+  top: -39px;
+  right: -49px;
 }
 
 .modal__header {
@@ -113,6 +119,22 @@
 .modal__submit-btn:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.modal__image-container {
+  position: relative;
+}
+
+.modal__image {
+  max-width: 88vw;
+  max-height: 88vh;
+  width: 100;
+  object-fit: contain;
+  display: block;
+}
+
+.modal__caption {
+  color: #fff;
 }
 
 @media screen and (max-width: 730px) {

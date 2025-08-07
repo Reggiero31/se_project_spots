@@ -130,6 +130,7 @@
 
 .modal__image-container {
   position: relative;
+  border-radius: 8px;
 }
 
 .modal__image {

@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: visibility 0.3s, opacity 0.3 ease-in;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 .modal_is-opened {
   visibility: visible;
@@ -134,7 +134,7 @@
 }
 
 .modal__image {
-  max-width: 88vw;
+  max-width: 80vh;
   max-height: 80vh;
   width: 100%;
   object-fit: contain;

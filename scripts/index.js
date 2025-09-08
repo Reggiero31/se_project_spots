@@ -1,3 +1,5 @@
+// TODO - pass settings object to the validation functions that are called in this file
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -47,7 +49,7 @@ const newPostLink = newPostForm.querySelector("#card-link-input");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const captionInputEl = document.querySelector("#card-description-input");
-const linkInputEl = document.querySelector("#card-image-input");
+const linkInputEl = document.querySelector("#card-link-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = document.querySelector(
   ".modal__close-btn_type_preview"
@@ -55,9 +57,9 @@ const previewModalCloseBtn = document.querySelector(
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__caption");
 
-const modal = document.querySelectorAll(".madal");
+const modals = document.querySelectorAll(".modal");
 
-modal.forEach((modal) => {
+modals.forEach((modal) => {
   modal.addEventListener("click", (event) => {
     if (event.target.classList.contains("modal")) {
       closeModal(modal);
@@ -65,10 +67,21 @@ modal.forEach((modal) => {
   });
 });
 
+function handleEscapeKey(event) {
+  if (event.key === "Escape") {
+    const openedModal = document.querySelector(".modal.modal_is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
 function openModal(modal) {
+  document.addEventListener("keydown", handleEscapeKey);
   modal.classList.add("modal_is-opened");
 }
 function closeModal(modal) {
+  document.removeEventListener("keydown", handleEscapeKey);
   modal.classList.remove("modal_is-opened");
 }
 const cardTemplate = document
@@ -89,7 +102,6 @@ function getCardElement(data) {
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
   cardLikeBtnEl.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__liked-btn_active");
-    const cardSubmitBtn = cardModal.querySelector(".modal__button");
   });
 
   const cardDeleteButtonEl = cardElement.querySelector(".card__delete-button");
@@ -142,11 +154,11 @@ function handleEditProfileSubmit(evt) {
 
 function handleCardSubmit(evt) {
   evt.preventDefault();
-  const values = { name: captionInput.value, link: linkInputEl.value };
+  const values = { name: captionInputEl.value, link: linkInputEl.value };
   const cardEl = getCardElement(values);
   cardList.prepend(cardEl);
   evt.target.reset();
-  disableButton(cardSubmitBtn);
+  disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
 }
 
@@ -160,7 +172,7 @@ newPostForm.addEventListener("submit", function (evt) {
 
   const inputvalue = {
     name: captionInputEl.value,
-    link: newPostLink.value,
+    link: linkInputEl.value,
   };
   const cardElement = getCardElement(inputvalue);
   cardList.prepend(cardElement);

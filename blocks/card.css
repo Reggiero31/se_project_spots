@@ -66,7 +66,7 @@
   background-image: url(../image/hover_delete_button.svg);
 }
 
-.card__liked-btn-active:hover {
+.card__liked-btn_active:hover {
   opacity: 1;
 }
 

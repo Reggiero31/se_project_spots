@@ -1,27 +1,29 @@
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".form__input",
-  inputErrorClass: ".modal__error",
+  inputErrorClass: ".modal__input_type_error",
   submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__button_disable",
+  errorClass: "modal__error_visable",
 };
 
-const showInputError = (formEl, inputEl, config) => {
+const showInputError = (formEl, inputEl, errorMessage, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  errorMsgEl.textContent = errorMsgEl;
+  errorMsgEl.textContent = errorMessage;
+  errorMsgEl.classList.add(config.errorClass);
   inputEl.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
-  console.log(1111);
   console.log(config);
   inputEl.classList.remove(config.inputErrorClass);
 };
 
 const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, config);
+    showInputError(formEl, inputEl, inputEl, validationMessage, config);
   } else {
     hideInputError(formEl, inputEl, config);
   }
@@ -33,21 +35,23 @@ const hasInvalidInput = (InputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonEl) => {
+const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
+    buttonEl.classList.add(config.inactiveButtonClass);
     buttonEl.disabled = true;
   } else {
+    buttonEl.classList.remove(config.inactiveButtonClass);
     buttonEl.disabled = false;
   }
 };
 
 const disableButton = (buttonEl, config) => {
-  debugger;
+  buttonEl.classList.add(config.inactiveButtonClass);
   buttonEl.disabled = true;
 };
 
 // optional
-const resetValidation = (formEl, inputList) => {
+const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formEl, input, settings);
   });
@@ -64,7 +68,7 @@ const setEventListeners = (formEl, config) => {
   inputList.forEach((inputElement) => {
     console.log(7);
     console.log(inputElement);
-    inputElement.addEventListener("keydown", () => {
+    inputElement.addEventListener("input", () => {
       console.log(1312313);
       console.log(config);
       checkInputValidity(formEl, inputElement, config);
@@ -74,7 +78,7 @@ const setEventListeners = (formEl, config) => {
 };
 
 const enablevalidation = (config) => {
-  const formList = document.querySelectorAll(config.formSelector);
+  const formList = Array.form(document.querySelectorAll(config.formSelector));
   console.log(10);
   console.log(formList);
   formList.forEach((formEl) => {
@@ -83,4 +87,4 @@ const enablevalidation = (config) => {
   });
 };
 
-enablevalidation(settings);
+enableValidation(settings);

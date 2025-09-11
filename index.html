@@ -42,7 +42,6 @@
                             <div class="card__content">
                                 <h2 class="card__title">Val Thorens</h2>
                                 <button type="button" class="card__like-btn"></button>
-                                <button class="card__liked-btn card__liked-btn_active"></button>
                             </div>
                         </li>
 
@@ -61,10 +60,10 @@
                         <img src="./image/xclose_button.svg" alt="close">
                     </button>
                 </div>
-                <form class="modal__form" id="profile-form" novalidate>
+                <form class="modal__form" id="profile-form">
                     <label for="profile-name-input" class="modal__label">
                         Name
-                        <input id="profile-name-input" type="text" class="form__input" minlength="2" required
+                        <input id="profile-name-input" type="text" class="modal__input" minlength="2" required
                             maxlength="40" placeholder="Describe yourself" />
 
                     </label>
@@ -87,17 +86,17 @@
                         <img src="./image/xclose_button.svg" alt="close">
                     </button>
                 </div>
-                <form class="modal__form" id="card-form" novalidate>
+                <form class="modal__form" id="card-form">
                     <label for="card-link-input" class="modal__label">
                         Image link
-                        <input id="card-link-input" type="url" class="modal__input" minlength="2" maxlength="200"
-                            required placeholder="paste a link to the picture" />
+                        <input id="card-link-input" type="url" class="modal__input" required
+                            placeholder="paste a link to the picture" />
 
                     </label>
                     <span id="card-link-input-error" class="modal__error"></span>
                     <label for="card-description-input" class="modal__label">
                         Description
-                        <input id="card-description-input" class="modal__input" minlength="2" maxlength="30" required
+                        <input id="card-description-input" class="modal__input" minlength="2" maxlength="200" required
                             placeholder="Type your caption" />
 
                     </label>

@@ -1,10 +1,10 @@
 const settings = {
   formSelector: ".modal__form",
-  inputSelector: ".form__input",
-  inputErrorClass: ".modal__input_type_error",
+  inputSelector: ".modal__input",
+  inputErrorClass: "modal__input_type_error",
   submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__button_disable",
-  errorClass: "modal__error_visable",
+  inactiveButtonClass: "modal__submit-btn_disable",
+  errorClassvisible: "modal__error_visible",
 };
 
 const showInputError = (formEl, inputEl, errorMessage, config) => {
@@ -23,7 +23,7 @@ const hideInputError = (formEl, inputEl, config) => {
 
 const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl, validationMessage, config);
+    showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
     hideInputError(formEl, inputEl, config);
   }
@@ -53,7 +53,7 @@ const disableButton = (buttonEl, config) => {
 // optional
 const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
-    hideInputError(formEl, input, settings);
+    hideInputError(formEl, input, config);
   });
 };
 
@@ -77,8 +77,8 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-const enablevalidation = (config) => {
-  const formList = Array.form(document.querySelectorAll(config.formSelector));
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
   console.log(10);
   console.log(formList);
   formList.forEach((formEl) => {

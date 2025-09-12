@@ -63,17 +63,17 @@
                 <form class="modal__form" id="profile-form">
                     <label for="profile-name-input" class="modal__label">
                         Name
+                        <span class="modal__error" id="profile-name-input-error"></span>
                         <input id="profile-name-input" type="text" class="modal__input" minlength="2" required
                             maxlength="40" placeholder="Describe yourself" />
-
                     </label>
-                    <span class="modal__error" id="profile-name-input-error"></span>
+                    </label>
                     <label for="profile-description-input" class="modal__label">
                         Description
+                        <span class="modal__error" id="profile-description-input-error"></span>
                         <input id="profile-description-input" class="modal__input" minlength="2" maxlength="200"
                             required placeholder="Describe yourself" />
                     </label>
-                    <span class="modal__error" id="profile-description-input-error"></span>
                     <button type="submit" class="modal__submit-btn">Save</button>
                 </form>
             </div>
@@ -89,18 +89,17 @@
                 <form class="modal__form" id="card-form">
                     <label for="card-link-input" class="modal__label">
                         Image link
+                        <span id="card-link-input-error" class="modal__error"></span>
                         <input id="card-link-input" type="url" class="modal__input" required
                             placeholder="paste a link to the picture" />
-
                     </label>
-                    <span id="card-link-input-error" class="modal__error"></span>
                     <label for="card-description-input" class="modal__label">
                         Description
+                        <span class="modal__error" id="card-description-input-error"></span>
                         <input id="card-description-input" class="modal__input" minlength="2" maxlength="200" required
                             placeholder="Type your caption" />
-
+                        <span class="modal__error" id="card-description-input-error"></span>
                     </label>
-                    <span class="modal__error" id="card-description-input-error"></span>
                     <button type="submit" class="modal__submit-btn">Save</button>
                 </form>
             </div>

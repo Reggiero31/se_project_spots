@@ -43,7 +43,7 @@ const editProfileDescriptionInput = document.querySelector(
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
-const newPostForm = newPostModal.querySelector(".modal__form");
+const newPostSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 const captionInputEl = document.querySelector("#card-description-input");
@@ -165,7 +165,8 @@ newPostForm.addEventListener("submit", function (evt) {
 
   newPostForm.reset();
 
-  closeModal(newPostModal);
+ closeModal(newPostModal);
+ disableButton(newPostSubmitBtn, settings);
 });
 
 initialCards.forEach(function (item) {

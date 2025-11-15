@@ -1,4 +1,5 @@
-const settings = {
+export const validationconfig = {
+  
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   inputErrorClass: "modal__input_type_error",
@@ -57,8 +58,6 @@ const resetValidation = (formEl, inputList, config) => {
   });
 };
 
-// TODO - use the settings object in all functions instead of hard-coded strings
-
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
@@ -77,7 +76,7 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   console.log(10);
   console.log(formList);
@@ -86,5 +85,3 @@ const enableValidation = (config) => {
     setEventListeners(formEl, config);
   });
 };
-
-enableValidation(settings);

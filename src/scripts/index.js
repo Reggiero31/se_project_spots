@@ -1,5 +1,4 @@
-// TODO - pass settings object to the validation functions that are called in this file
-
+import "../pages/index.css";
 const initialCards = [
   {
     name: "Golden Gate Bridge",

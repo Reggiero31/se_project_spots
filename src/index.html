@@ -7,32 +7,34 @@
     <meta name="description" content="This is the best website you've ever seen" />
     <meta name="author" content="Reginald Robinson">
     <meta name="keywords" content="Bessie Coleman Spots" />
-
-
     <title>Spots</title>
+    <link rel="icon" type="images/x-icon" href="favicon.ico" />
+
 
 </head>
 
 <body>
     <div class="page">
         <header class="header">
-            <img src="<%=require('./image/Logo.svg')%>" alt="Spots" class="header__logo">
+            <img src="<%=require('./images/Logo.svg')%>" alt="Spots" class="header__logo">
 
         </header>
         <main class="content">
             <section class="profile page__section">
-                <img src="<%=require('./image/avatar.jpg')%>" alt="Bessie Coleman" class="profile__avatar">
+                <img src="<%=require('./images/avatar.jpg')%>" alt="Bessie Coleman" class="profile__avatar">
+
+
 
                 <div class="profile__column">
                     <h1 class="profile__name">Bessie Coleman</h1>
                     <p class="profile__description">Civil Aviator </p>
                     <button type="button" class="profile__edit-btn">
-                        <img src="<%=require('./image/pencil.svg')%>" alt="pencil icon"> edit profile
+                        <img src="<%=require('./images/pencil.svg')%>" alt="pencil icon"> edit profile
 
                     </button>
                 </div>
                 <button class="profile__add-btn" type="button">
-                    <img src="<%=require('./image/plus.svg')%>" alt="plus" alt=> New Post
+                    <img src="<%=require('./images/plus.svg')%>" alt="plus" alt=> New Post
 
                 </button>
             </section>
@@ -61,7 +63,7 @@
                 <div class="modal__header">
                     <h2 class="modal__title">Edit profile</h2>
                     <button type="button" class="modal__close-btn">
-                        <img src="<%=require('./image/xclose_button.svg')%>" alt="close">
+                        <img src="<%=require('./images/close.svg')%>" alt="close">
 
                     </button>
                 </div>
@@ -87,7 +89,7 @@
                 <div class="modal__header">
                     <h2 class="modal__title">New Post</h2>
                     <button type="button" class="modal__close-btn">
-                        <img src="./image/xclose_button.svg" alt="close">
+                        <img src="<%=require('./images/close.svg')%>" alt="close">
                     </button>
                 </div>
                 <form class="modal__form" id="card-form">

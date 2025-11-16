@@ -1,4 +1,6 @@
-import "../pages/index.css";
+import "./index.css";
+import { enablevalidation, validationConfig } from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",

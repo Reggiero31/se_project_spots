@@ -94,6 +94,7 @@ const avatarForm = avatarModal.querySelector(".modal__form");
 // Delete form elements
 const deleteModal = document.querySelector("#delete-modal");
 const deleteform = deleteModal.querySelector(".modal__form");
+const cancelBtn = deleteModal.querySelector("button[type='button']");
 
 // preview Image popup elements
 const previewImageEl = previewModal.querySelector(".modal__image");
@@ -132,12 +133,13 @@ let selectedCard, selectedCardId;
 const cardList = document.querySelector(".cards__list");
 
 function handleLike(evt, id) {
-  evt.target.classList.toggle("card__like-button_active");
-  // 1. checked whethern card is currently liked or not
-  // const isLiked = ???;
-  // 2.call the changeLikeStatus method, passing it the appropiate argguments
-  // 3. handle the response (.then and .catch)
-  // 4. in the .then, toggle active class
+  const isLiked = evt.target.classList.contains("card__like-button_active");
+  api
+    .changeLikeStatus(id, !isLiked)
+    .then(() => {
+      evt.target.classList.toggle("card__like-button_active");
+    })
+    .catch(console.error);
 }
 
 function getCardElement(data) {
@@ -225,8 +227,8 @@ function handleEditProfileSubmit(evt) {
 
   api
     .editUserInfo({
-      name: "editNameInput.value",
-      about: "editProfileDescriptionInput.value",
+      name: editNameInput.value,
+      about: editProfileDescriptionInput.value,
     })
     .then((data) => {
       profileNameEl.textContent = editProfileNameInput.value;
@@ -258,9 +260,10 @@ function handleDeleteSubmit(evt) {
   api
     .deleteCard(selectedCardId)
     .then(() => {
-      //TODO
-      // remove the card from the DOM
-      // close the modal
+      selectedCard.remove(); // remove from DOM
+      selectedCard = null;
+
+      closeModal(deleteModal); // close confirmation popup
     })
     .catch(console.error);
 }

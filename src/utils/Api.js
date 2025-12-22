@@ -69,7 +69,7 @@ class Api {
     });
   }
 
-  changeLikeStatus({ id, isLike }) {
+  LikeButton({id, isLike }) {
     const res = fetch(`${this._baseUrl}/cards/$(id)/likes`, {
       method: isLike ? "DELETE" : "PUT",
       headers: this._headers,

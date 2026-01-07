@@ -5,10 +5,59 @@
 }
 
 .profile__avatar {
-  height: 190px;
-  width: 190px;
+  height: 100%;
+  width: 100%;
   border-radius: 8px;
   display: block;
+}
+
+.profile_avatar-container {
+  box-sizing: border-box;
+  height: 190px;
+  width: 190px;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  height: 190px;
+  width: 190px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fcf5e5;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:flex-end;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.profile__avatar-btn img {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  background-image: url(../images/pencil-light2.svg);
+  margin-bottom: 8px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  opacity: 1;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
 }
 
 .profile__column {
@@ -89,10 +138,6 @@
     padding-top: 20px;
   }
 
-  .profile__avatar-btn {
-    visibility: visible;
-  }
-
   /* TODO - set content of ::after element to "" */
   /* TODO - finish mobile avatar button styles */
 
@@ -164,5 +209,12 @@
   opacity: 80%;
 }
 
-.profile__edit-btn {
+.profile__edit-avatar-btn {
+  width: 111.34px;
+  height: 16px;
+  top: 162px;
+  left: 39px;
+  border-radius: 90px;
+  gap: 8px;
 }
+

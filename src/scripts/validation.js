@@ -1,5 +1,4 @@
-export const validationconfig = {
-  
+export const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   inputErrorClass: "modal__input_type_error",
@@ -17,7 +16,6 @@ const showInputError = (formEl, inputEl, errorMessage, config) => {
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  errorMsgEl.textContent = "";
   console.log(config);
   inputEl.classList.remove(config.inputErrorClass);
 };
@@ -52,7 +50,7 @@ const disableButton = (buttonEl, config) => {
 };
 
 // optional
-const resetValidation = (formEl, inputList, config) => {
+export const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });

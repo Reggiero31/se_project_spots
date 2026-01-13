@@ -21,3 +21,12 @@ The link to your deployed project on GitHub Pages: https://reggiero31.github.io/
 https://www.loom.com/share/73b04ce2fa7e40b98a85a386149b77c8
 
 https://www.loom.com/share/f82b7aeee92345acbaba6e046983024b
+
+
+The project name: spots final project
+
+ reggie spots final project video:
+ https://www.loom.com/share/e0563e3483994d31bb182d8cd76a3639
+
+
+Therefore the description of my Spots final project is amazing and in my viedo I went over different steps that I use when it comes to building a sucessful project. However this project has help me to build my confidence to stay focus and driven and also it has challenge me to always ask questions if I need any assistance with anything. Therefore I had been working on this project for a while I just wanted to make sure everything is functional before I submitted it in my github folder.

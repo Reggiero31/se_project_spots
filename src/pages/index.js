@@ -45,6 +45,7 @@ const avatarModal = document.querySelector("#avatar-modal");
 const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 const avatarForm = avatarModal.querySelector(".modal__form");
+const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
 
 // Delete form elements
 const confirmationModal = document.querySelector("#delete-modal");
@@ -105,7 +106,6 @@ function getCardElement(data) {
     .cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
-  console.log(data?.name, data?.link, data?._id, data?.isLiked);
 
   // TODO - if the card is liked, set the active on the card
   cardImageEl.src = data?.link;
@@ -142,7 +142,7 @@ const handleImageClick = (data) => {
   openModal(previewModal);
 };
 
-avatarModalBtn.addEventListener("click", ()=> openModal(avatarModal))
+avatarModalBtn.addEventListener("click", () => openModal(avatarModal));
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 deleteBtn.addEventListener("click", handleDeleteSubmit);
@@ -174,6 +174,13 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
+cancelBtn.addEventListener("click", function () {
+  closeModal(confirmationModal);
+})
+avatarCloseBtn.addEventListener("click", function () {
+  closeModal(avatarModal);
+})
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
 
@@ -183,7 +190,7 @@ function handleEditProfileSubmit(evt) {
 
   api
     .editUserInfo({
-      name: editNameInput.value,
+      name: editProfileNameInput.value,
       about: editProfileDescriptionInput.value,
     })
     .then((data) => {
@@ -199,12 +206,10 @@ function handleEditProfileSubmit(evt) {
 
 function handleAvatarSubmit(evt) {
   // prevent  behavior
-  console.log(avatarInput.value);
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       document.querySelector(".profile__avatar").src = data.avatar;
-      console.log(data.avatar);
     })
     .catch(console.error);
 }
@@ -237,20 +242,24 @@ newPostForm.addEventListener("submit", function (evt) {
     link: linkInputEl.value,
   };
 
-  api.CreateCard(inputvalue) .then((newCard) => {const cardElement = getCardElement(newCard);
-  cardList.prepend(cardElement);
+  api
+    .CreateCard(inputvalue)
+    .then((newCard) => {
+      const cardElement = getCardElement(newCard);
+      cardList.prepend(cardElement);
 
-  newPostForm.reset();
+      newPostForm.reset();
 
-  closeModal(newPostModal);
-}) .catch(console.error);
+      closeModal(newPostModal);
+    })
+    .catch(console.error);
 });
 
 //Destructure the second item in the callback of the .then()
 api.getappInfo().then(([cards]) => {
   cards.forEach((item) => {
-    const cardEl = getCardElement({ ...item })
+    const cardEl = getCardElement({ ...item });
     cardList.append(cardEl);
   });
 });
-enableValidation(validationConfig)
+enableValidation(validationConfig);

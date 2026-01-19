@@ -25,7 +25,7 @@ https://www.loom.com/share/f82b7aeee92345acbaba6e046983024b
 
 The project name: spots final project
 
- reggie spots final project video:
+ Reggie Robinson spots final project video:
  https://www.loom.com/share/e0563e3483994d31bb182d8cd76a3639
 
 

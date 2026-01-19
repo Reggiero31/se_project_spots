@@ -8,14 +8,23 @@ class Api {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   }
 
-  // TODO - create another method, getUserInfo (different base URL)
-
   getappInfo() {
-    return Promise.all([this.getInitialCards()]);
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
+      headers: this._header,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject("Error: ${res.status}");
+    });
+  }
+
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._header,
     }).then((res) => {
       if (res.ok) {
@@ -38,8 +47,10 @@ class Api {
     return this._handleResponse(res);
   }
 
-  editAvatarInfo({ avatar }) {
-    return fetch(`${this._baseUrl}/users/avatar`, {
+  editAvatarInfo(avatar) {
+    console.log(avatar);
+
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._header,
       // Send the data in the body as a JSON string.
@@ -61,7 +72,7 @@ class Api {
     }).then((res) => this._handleResponse(res));
   }
 
-  DeleteCard ( id )  {
+  DeleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: this._header,

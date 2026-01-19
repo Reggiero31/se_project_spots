@@ -5,9 +5,9 @@
 }
 
 .profile__avatar {
-  height: 100%;
-  width: 100%;
-  border-radius: 8px;
+  height: 190px;
+  width: 190px;
+  border-radius: 50px;
   display: block;
 }
 

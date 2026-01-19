@@ -17,7 +17,6 @@ const showInputError = (formEl, inputEl, errorMessage, config) => {
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-
   errorMsgEl.textContent = null;
   errorMsgEl.classList.remove(config.errorClassvisible);
   inputEl.classList.remove(config.inputErrorClass);

@@ -46,6 +46,7 @@ const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 const avatarForm = avatarModal.querySelector(".modal__form");
 const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
+const avatar = document.querySelector(".profile__avatar");
 
 // Delete form elements
 const confirmationModal = document.querySelector("#delete-modal");
@@ -176,10 +177,10 @@ newPostCloseBtn.addEventListener("click", function () {
 
 cancelBtn.addEventListener("click", function () {
   closeModal(confirmationModal);
-})
+});
 avatarCloseBtn.addEventListener("click", function () {
   closeModal(avatarModal);
-})
+});
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
@@ -205,11 +206,13 @@ function handleEditProfileSubmit(evt) {
 }
 
 function handleAvatarSubmit(evt) {
-  // prevent  behavior
+  console.log(avatarInput.value)
+
+  evt.preventDefault();
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
-      document.querySelector(".profile__avatar").src = data.avatar;
+      avatar.src = data.avatar;
     })
     .catch(console.error);
 }
@@ -256,10 +259,16 @@ newPostForm.addEventListener("submit", function (evt) {
 });
 
 //Destructure the second item in the callback of the .then()
-api.getappInfo().then(([cards]) => {
-  cards.forEach((item) => {
-    const cardEl = getCardElement({ ...item });
-    cardList.append(cardEl);
-  });
-});
+api
+  .getappInfo()
+  .then(([cards, userInfo]) => {
+    cards.forEach((item) => {
+      const cardEl = getCardElement({ ...item });
+      cardList.append(cardEl);
+    });
+    profileNameEl.textContent = userInfo.name;
+    profileDescriptionEl.textContent = userInfo.about;
+    avatar.src = userInfo.avatar;
+  })
+  .catch(console.error);
 enableValidation(validationConfig);

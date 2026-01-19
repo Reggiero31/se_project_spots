@@ -1,5 +1,4 @@
-export const validationconfig = {
-  
+export const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   inputErrorClass: "modal__input_type_error",
@@ -10,15 +9,16 @@ export const validationconfig = {
 
 const showInputError = (formEl, inputEl, errorMessage, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
+
   errorMsgEl.textContent = errorMessage;
-  errorMsgEl.classList.add(config.errorClass);
+  errorMsgEl.classList.add(config.errorClassvisible);
   inputEl.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  errorMsgEl.textContent = "";
-  console.log(config);
+  errorMsgEl.textContent = null;
+  errorMsgEl.classList.remove(config.errorClassvisible);
   inputEl.classList.remove(config.inputErrorClass);
 };
 
@@ -52,7 +52,7 @@ const disableButton = (buttonEl, config) => {
 };
 
 // optional
-const resetValidation = (formEl, inputList, config) => {
+export const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });
@@ -63,13 +63,8 @@ const setEventListeners = (formEl, config) => {
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement, config);
-  console.log(8);
   inputList.forEach((inputElement) => {
-    console.log(7);
-    console.log(inputElement);
     inputElement.addEventListener("input", () => {
-      console.log(1312313);
-      console.log(config);
       checkInputValidity(formEl, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
     });
@@ -78,10 +73,7 @@ const setEventListeners = (formEl, config) => {
 
 export const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
-  console.log(10);
-  console.log(formList);
   formList.forEach((formEl) => {
-    console.log(9);
     setEventListeners(formEl, config);
   });
 };

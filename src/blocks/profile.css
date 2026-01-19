@@ -7,8 +7,57 @@
 .profile__avatar {
   height: 190px;
   width: 190px;
-  border-radius: 8px;
+  border-radius: 50px;
   display: block;
+}
+
+.profile_avatar-container {
+  box-sizing: border-box;
+  height: 190px;
+  width: 190px;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  height: 190px;
+  width: 190px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fcf5e5;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.profile__avatar-btn img {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  background-image: url(../images/pencil-light2.svg);
+  margin-bottom: 8px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  opacity: 1;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
 }
 
 .profile__column {
@@ -89,10 +138,6 @@
     padding-top: 20px;
   }
 
-  .profile__avatar-btn {
-    visibility: visible;
-  }
-
   /* TODO - set content of ::after element to "" */
   /* TODO - finish mobile avatar button styles */
 
@@ -164,5 +209,37 @@
   opacity: 80%;
 }
 
-.profile__edit-btn {
+.profile__edit-avatar-btn {
+  width: 111.34px;
+  height: 16px;
+  top: 162px;
+  left: 39px;
+  border-radius: 90px;
+  gap: 8px;
+}
+
+.profile__edit-profile-avatar {
+  width: 730px;
+  height: 298px;
+  margin-top: 262px;
+  margin-left: 355px;
+  border-radius: 8px;
+  padding-top: 32px;
+  padding-right: 50px;
+  padding-bottom: 32px;
+  padding-left: 50px;
+  gap: 32px;
+  background-color: #fff;
+}
+
+.profile__text-edit-profile-avatar {
+  width: 285px;
+  height: 32px;
+  font-family: poppins;
+  weight: 500;
+  font-style: italic medium;
+  size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #212121;
 }

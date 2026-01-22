@@ -15,23 +15,13 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._header,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Error: ${res.status}");
-    });
+    }).then( this._handleResponse);
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._header,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Error: ${res.status}");
-    });
+    }).then( this._handleResponse);
   }
 
   async editUserInfo({ name, about }) {

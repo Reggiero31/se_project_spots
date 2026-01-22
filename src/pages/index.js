@@ -187,7 +187,6 @@ function handleEditProfileSubmit(evt) {
 
   const submitBtn = evt.submitter;
   submitBtn.textContent = "saving";
-  SetButtonText(submitBtn, true);
 
   api
     .editUserInfo({
@@ -207,18 +206,28 @@ function handleEditProfileSubmit(evt) {
 
 function handleAvatarSubmit(evt) {
   console.log(avatarInput.value)
-
+const submitBtn = evt.submitter;
+  submitBtn.textContent = "saving";
   evt.preventDefault();
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       avatar.src = data.avatar;
+      closeModal(avatarModal)
+      avatarForm.reset()
+      evt.submitter.disabled = true
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "Save";
+    });
 }
+
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  submitBtn.textContent = "deleting";
   api
     .DeleteCard(selectedCardId)
     .then(() => {
@@ -226,8 +235,12 @@ function handleDeleteSubmit(evt) {
       selectedCard = null;
       closeModal(confirmationModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "delete";
+    });
 }
+
 
 //ideally this function should be refactored to be more generic
 function handleDeleteCard(cardElement, cardId) {
@@ -239,7 +252,8 @@ function handleDeleteCard(cardElement, cardId) {
 profileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+const submitBtn = evt.submitter;
+  submitBtn.textContent = "saving";
   const inputvalue = {
     name: captionInputEl.value,
     link: linkInputEl.value,
@@ -255,8 +269,12 @@ newPostForm.addEventListener("submit", function (evt) {
 
       closeModal(newPostModal);
     })
-    .catch(console.error);
-});
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "Save";
+    });
+
+})
 
 //Destructure the second item in the callback of the .then()
 api

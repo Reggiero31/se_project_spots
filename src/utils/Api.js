@@ -4,81 +4,77 @@ class Api {
     this._header = headers;
   }
 
-  // TODO - create another method, getUserInfo (different base URL)
+  _handleResponse(res) {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  }
 
   getappInfo() {
-    return Promise.all([this.getInitialCards()]);
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._header,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Error: ${res.status}");
-    });
+    }).then( this._handleResponse);
   }
-  // TODO - implement Post /cards
 
-  editUserInfo({ name, about }) {
-    const res = fetch(`${this._baseUrl}/users/me`, {
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._header,
+    }).then( this._handleResponse);
+  }
+
+  async editUserInfo({ name, about }) {
+    const res = await fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._header,
       // Send the data in the body as a JSON string.
       body: JSON.stringify({
         name,
         about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
     });
-
-    return Promise.reject("Not authorized to access this page");
+    return this._handleResponse(res);
   }
 
-  editAvatarInfo({ avatar }) {
-    const res = fetch(`${this._baseUrl}/users/avatar`, {
+  editAvatarInfo(avatar) {
+    console.log(avatar);
+
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: this._header,
       // Send the data in the body as a JSON string.
       body: JSON.stringify({
         avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+    }).then(this._handleResponse);
   }
 
-  deleteCard({ id }) {
-    const res = fetch(`${this._baseUrl}/cards/$(id)`, {
+  // 1. create a function with the API request to create the card
+  // 2. creation the card API request will return you card data WITH ID
+  // 3. this ID you need to add the to likes request, otherwise server don't know what to handle
+
+  CreateCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._header,
+      body: JSON.stringify({ name, link }),
+    }).then((res) => this._handleResponse(res));
+  }
+
+  DeleteCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+      headers: this._header,
+    }).then(this._handleResponse);
   }
 
-  changeLikeStatus({ id, isLike }) {
-    const res = fetch(`${this._baseUrl}/cards/$(id)/likes`, {
-      method: isLike ? "DELETE" : "PUT",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      Promise.reject("Error: ${res.status}");
-    });
+  LikeButton({ id, isLiked }) {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+      method: isLiked ? "DELETE" : "PUT",
+      headers: this._header,
+    }).then(this._handleResponse);
   }
 }
+
 export default Api;

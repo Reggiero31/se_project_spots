@@ -73,6 +73,14 @@
   flex-direction: column;
 }
 
+.modal__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+}
+
 .modal__label {
   margin: 0 0 32px;
   font-weight: 500;
@@ -143,6 +151,44 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+.modal__delete-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  background-color: #ff3333;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #000;
+  border: none;
+  max-width: 156px;
+}
+
+.modal__delete-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.modal__cancel-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  background-color: #212121;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fcf5e5;
+  border: none;
+  max-width: 156px;
+  border-radius: 1px;
+}
+
+.modal__cancel-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .modal__submit-btn_disable {
   opacity: 50%;
   pointer-events: none;

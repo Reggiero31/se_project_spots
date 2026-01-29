@@ -15,13 +15,13 @@ class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._header,
-    }).then( this._handleResponse);
+    }).then(this._handleResponse);
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._header,
-    }).then( this._handleResponse);
+    }).then(this._handleResponse);
   }
 
   async editUserInfo({ name, about }) {
@@ -50,9 +50,6 @@ class Api {
     }).then(this._handleResponse);
   }
 
-  // 1. create a function with the API request to create the card
-  // 2. creation the card API request will return you card data WITH ID
-  // 3. this ID you need to add the to likes request, otherwise server don't know what to handle
 
   CreateCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {

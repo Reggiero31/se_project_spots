@@ -24,7 +24,7 @@ const newPostForm = document.querySelector("#card-form");
 const editProfileNameInput = document.querySelector("#profile-name-input");
 
 const editProfileDescriptionInput = document.querySelector(
-  "#profile-description-input"
+  "#profile-description-input",
 );
 
 const newPostBtn = document.querySelector(".profile__add-btn");
@@ -37,7 +37,7 @@ const captionInputEl = document.querySelector("#card-description-input");
 const linkInputEl = document.querySelector("#card-link-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = document.querySelector(
-  ".modal__close-btn_type_preview"
+  ".modal__close-btn_type_preview",
 );
 
 // Avatar form element
@@ -52,6 +52,7 @@ const avatar = document.querySelector(".profile__avatar");
 const confirmationModal = document.querySelector("#delete-modal");
 const deleteBtn = confirmationModal.querySelector(".modal__delete-btn");
 const cancelBtn = confirmationModal.querySelector(".modal__cancel-btn");
+const deleteCloseBtn = confirmationModal.querySelector(".modal__close-btn");
 
 // preview Image popup elements
 const previewImageEl = previewModal.querySelector(".modal__image");
@@ -122,7 +123,7 @@ function getCardElement(data) {
 
   const cardDeleteButtonEl = cardElement.querySelector(".card__delete-button");
   cardDeleteButtonEl.addEventListener("click", () =>
-    handleDeleteCard(cardElement, data._id)
+    handleDeleteCard(cardElement, data._id),
   );
 
   // function handleDeleteCard(event){
@@ -158,10 +159,14 @@ editProfileBtn.addEventListener("click", function () {
   resetValidation(
     profileForm,
     [editProfileDescriptionInput, editProfileNameInput],
-    validationConfig
+    validationConfig,
   );
   openModal(editProfileModal);
 });
+deleteCloseBtn.addEventListener("click", function () {
+  closeModal(confirmationModal);
+});
+
 
 editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
@@ -205,17 +210,17 @@ function handleEditProfileSubmit(evt) {
 }
 
 function handleAvatarSubmit(evt) {
-  console.log(avatarInput.value)
-const submitBtn = evt.submitter;
+  console.log(avatarInput.value);
+  const submitBtn = evt.submitter;
   submitBtn.textContent = "saving";
   evt.preventDefault();
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       avatar.src = data.avatar;
-      closeModal(avatarModal)
-      avatarForm.reset()
-      evt.submitter.disabled = true
+      closeModal(avatarModal);
+      avatarForm.reset();
+      evt.submitter.disabled = true;
     })
     .catch(console.error)
     .finally(() => {
@@ -223,11 +228,10 @@ const submitBtn = evt.submitter;
     });
 }
 
-
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
-  const submitBtn = evt.submitter;
-  submitBtn.textContent = "deleting";
+
+  deleteBtn.textContent = "deleting";
   api
     .DeleteCard(selectedCardId)
     .then(() => {
@@ -237,10 +241,9 @@ function handleDeleteSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      submitBtn.textContent = "delete";
+      deleteBtn.textContent = "delete";
     });
 }
-
 
 //ideally this function should be refactored to be more generic
 function handleDeleteCard(cardElement, cardId) {
@@ -252,7 +255,7 @@ function handleDeleteCard(cardElement, cardId) {
 profileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-const submitBtn = evt.submitter;
+  const submitBtn = evt.submitter;
   submitBtn.textContent = "saving";
   const inputvalue = {
     name: captionInputEl.value,
@@ -273,8 +276,7 @@ const submitBtn = evt.submitter;
     .finally(() => {
       submitBtn.textContent = "Save";
     });
-
-})
+});
 
 //Destructure the second item in the callback of the .then()
 api
